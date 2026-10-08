@@ -1,0 +1,7 @@
+{
+  "suite": "../suites/v03/rf5c.jsonl", "repeats": 1,
+  "arms": [
+    {"name": "flat", "config": "../../config.toml", "mode": "decision_only", "threshold": 0.5},
+    {"name": "hierarchical", "config": "../../config.toml", "mode": "hierarchical_probe", "threshold": 0.5}
+  ]
+}

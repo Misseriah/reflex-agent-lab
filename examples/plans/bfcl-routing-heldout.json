@@ -1,0 +1,11 @@
+{
+  "suite": "../splits/bfcl-routing/test.jsonl",
+  "split_manifest": "../splits/bfcl-routing/manifest.json",
+  "partition": "test",
+  "repeats": 1,
+  "arms": [
+    {"name": "B0", "config": "../../config.toml", "mode": "strong_only", "threshold": 0.5},
+    {"name": "B1", "config": "../../config.toml", "mode": "small_only", "threshold": 0.5},
+    {"name": "Jev", "config": "../../config.toml", "mode": "decision_only", "threshold": 0.5}
+  ]
+}

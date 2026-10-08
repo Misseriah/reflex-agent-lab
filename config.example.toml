@@ -1,0 +1,81 @@
+# No secrets. Copy to config.toml locally; never commit the filled-in file.
+# Model names and prices below are the experiment's 2026-09-29 snapshot,
+# not a claim about current availability or pricing. Verify before paid runs.
+
+[agent]
+mode = "reflex"
+threshold = 0.5
+max_steps = 20
+
+[http]
+timeout_seconds = 60
+max_attempts = 3
+backoff_seconds = 1
+
+[budget]
+# A limit is not permission to make paid calls. Obtain run-specific approval.
+limit_cny = 1.0
+ledger = "runs/budgets/local.sqlite3"
+
+[jev]
+endpoint = "https://api.typesafe.ai/v1/systemone"
+model = "jev-1.13.0"
+api_key = ""
+api_key_env = "TYPESAFE_API_KEY"
+
+[jev.pricing]
+scheme = "jev_input_usd_v1"
+model = "jev-1.13.0"
+currency = "USD"
+input_per_million = 0.042
+output_per_million = 0.0
+date = "2026-09-29"
+source = "https://docs.typesafe.ai/models"
+budget_cny_per_usd = 8.0
+conversion_basis = "Historical planning conversion only; not a live exchange rate"
+
+[strong]
+endpoint = "https://api.deepseek.com/chat/completions"
+model = "deepseek-v4-pro"
+api_key = ""
+api_key_env = "DEEPSEEK_API_KEY"
+temperature = 0.0
+max_tokens = 2048
+json_mode = true
+
+[strong.extra_body.thinking]
+type = "disabled"
+
+[strong.pricing]
+scheme = "deepseek_cache_cny_v1"
+model = "deepseek-v4-pro"
+currency = "CNY"
+date = "2026-09-29"
+source = "https://api-docs.deepseek.com/zh-cn/quick_start/pricing/"
+input_per_million = 9.0
+cached_input_per_million = 0.3
+output_per_million = 27.0
+offpeak_multiplier = 0.5
+
+[small]
+endpoint = "https://api.deepseek.com/chat/completions"
+model = "deepseek-flash"
+api_key = ""
+api_key_env = "DEEPSEEK_API_KEY"
+temperature = 0.0
+max_tokens = 2048
+json_mode = true
+
+[small.extra_body.thinking]
+type = "disabled"
+
+[small.pricing]
+scheme = "deepseek_cache_cny_v1"
+model = "deepseek-flash"
+currency = "CNY"
+date = "2026-09-29"
+source = "https://api-docs.deepseek.com/zh-cn/quick_start/pricing/"
+input_per_million = 2.0
+cached_input_per_million = 0.04
+output_per_million = 8.0
+offpeak_multiplier = 0.5

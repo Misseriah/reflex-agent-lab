@@ -1,0 +1,52 @@
+{
+  "status": "declared_before_any_remote_model_run",
+  "version": "0.3.0",
+  "bootstrap": {"resamples": 10000, "factorial_and_intervention_seed": 20260921, "report_seed": 20260921, "legacy_compare_seed": 0, "interval": "paired cluster percentile 95%", "two_sided_p": "twice the smaller bootstrap sign-tail probability, plus-one corrected and capped at 1; independent implementation"},
+  "episode_cluster": "original task, including repeated trials",
+  "decision_cluster": "original scenario family, including all perturbations",
+  "noninferiority": {
+    "revision": "2026-09-29_research_foundations",
+    "margin": 0.02,
+    "one_sided_alpha": 0.025,
+    "criterion": "dedicated conservative 97.5% lower bound strictly greater than -0.02, with at least two independent units; never use bootstrap ci95",
+    "single_pair_per_cluster": "Bonferroni Clopper-Pearson lower(win probability) minus upper(loss probability); each one-sided marginal tail is alpha/2; assumes iid paired binary outcomes",
+    "multiple_rows_per_cluster": "row-weighted mean minus sqrt(2 log(1/alpha) sum(cluster weights squared)); clamp to -1; independent-cluster Hoeffding; fixed sizes/weights and arbitrary within-cluster dependence",
+    "scope": "One prespecified comparison; not multiplicity corrected; independence is an assumption, not certified by grouping"
+  },
+  "data_split": {
+    "revision": "2026-09-29_research_foundations",
+    "partitions": ["dev", "calibration", "test"],
+    "ratios": [0.6, 0.2, 0.2],
+    "seed": 17,
+    "unit": "transitive connected components of family, NFKC/whitespace-normalized request, metadata.template_id and an optional explicitly required metadata template field",
+    "allocation": "group-count largest remainder after reserving one component per partition; deterministic hash ordering; no outcomes",
+    "minimum": "three components or fail; fewer than ten components in any partition emits a warning, not a power guarantee",
+    "analysis": "audited runs carry analysis_cluster; comparison, factorial, intervention and BFCL cardinality analyses preserve it",
+    "limits": "No paraphrase detection, human semantic independence certificate, model-policy lock or native tau2 split; legacy runs remain explicitly unaudited"
+  },
+  "mcnemar": "exact binomial on discordant pairs; omitted for clustered families/repeated trials",
+  "risk_study": {
+    "version": 1,
+    "status": "independent executable protocol, no remote model results",
+    "risk_unit": "iid task-family clusters; any error and any unsafe event per cluster, not iid decision rows",
+    "calibration": "conditional on any delegated decision within cluster; prespecified finite rules; one-sided exact Clopper-Pearson upper bounds with alpha/(2 times number of rules)",
+    "calibration_distribution": "matched pre-action states along strong-model trajectories; not an on-policy guarantee",
+    "fallback": "no certified eligible rule implies strong-only execution without cheap probe cost",
+    "primary_test": "fresh locked-policy and strong-only trajectories on the same held-out split; four overall cluster risk upper bounds plus paired success NI share alpha/5 each",
+    "same_risk": "both arms meet the same prespecified overall budgets; not equality of true risks",
+    "cost": "all executed cheap probes and fallback calls; complete token usage and frozen USD price snapshots required for cost conclusions",
+    "secondary": "delegated-risk bounds and paired correctness/effect diagnostics are separately labeled; no test-set policy reselection",
+    "limits": "iid sampling assumed, semantic independence unverified, no human data review or global one-use test lock; separate studies require multiplicity control"
+  },
+  "ece": {"bins": 10, "width": "equal", "last_bin_includes_one": true},
+  "aurc": "descending confidence; ties retained together; right-step integration",
+  "random_escalation": "exact expected invalid rate under uniform selection at matched decision coverage; not an executed agent arm",
+  "factorial": ["marginal K=50 minus K=10", "marginal A3 minus A0", "endpoint difference-in-differences", "A2 minus A1 averaged across K", "A3 minus A2 averaged across K", "exploratory leave-risk-out cardinality effect without confirmatory p"],
+  "distance": "exact minimum changed editable atomic facts, finite domains; fixed task identity; unreachable candidates must evaluate to infinity",
+  "intervention": "read minus write; unconditional per-decision commit/deferral error rates; shape asymmetry is sum of their signed shifts",
+  "matching": {"encoder": "all-MiniLM-L6-v2", "revision": "1110a243fdf4706b3f48f1d95db1a4f5529b4d41", "cosine_tolerance": 0.02, "construction": "fixed 10x10 wording pool, min absolute gold-similarity difference, no model outcomes or family exclusion"},
+  "bfcl_selection": {"seed": 17, "routing": 300, "relevance_positive": 50, "relevance_negative": 50, "disjoint_original_ids": true, "author_subset": false},
+  "recovery_rate": "success fraction among episodes with at least one strong call; independent operational definition",
+  "native_semantics": "automatic mandatory-action checks only under ACTION reward; DB reference trajectory is not required calls; complete semantic audit requires hash-bound external review",
+  "provenance": "independent analysis specification; not the authors' preregistration"
+}

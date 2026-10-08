@@ -1,0 +1,21 @@
+[agent]
+mode = "reflex"
+threshold = 0.5
+max_steps = 20
+
+[jev]
+endpoint = "https://api.typesafe.ai/v1/systemone"
+model = "jev-1.13.0"
+api_key = ""
+api_key_env = "TYPESAFE_API_KEY"
+
+[strong]
+# Fill the actual gateway model ID for the paper's DeepSeek V4 Pro family.
+endpoint = ""
+model = ""
+api_key = ""
+api_key_env = "DEEPSEEK_API_KEY"
+temperature = 0.0
+max_tokens = 2048
+json_mode = true
+# Configure the provider's verified high-reasoning parameters under strong.extra_body.

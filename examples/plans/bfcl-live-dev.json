@@ -1,0 +1,10 @@
+{
+  "suite": "../public_data/bfcl-live/prepared/split/dev.jsonl",
+  "split_manifest": "../public_data/bfcl-live/prepared/split/manifest.json",
+  "partition": "dev",
+  "repeats": 1,
+  "arms": [
+    {"name": "strong", "config": "../../config.toml", "mode": "strong_only", "threshold": 0.5},
+    {"name": "small", "config": "../../config.toml", "mode": "small_only", "threshold": 0.5}
+  ]
+}

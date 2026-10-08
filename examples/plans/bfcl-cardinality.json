@@ -1,0 +1,9 @@
+{
+  "suite": "../suites/v03/bfcl/cardinality-final/suite.jsonl",
+  "base_suite": "../suites/v03/bfcl/routing-base.jsonl",
+  "certification": "../suites/v03/bfcl/cardinality-final/certification.json",
+  "repeats": 1,
+  "arms": [
+    {"name": "Jev", "config": "../../config.toml", "mode": "decision_only", "threshold": 0.5}
+  ]
+}

@@ -1,0 +1,10 @@
+{
+  "benchmark": "tau2", "suite": "tau2.json", "repeats": 1,
+  "arms": [
+    {"name": "B0", "config": "../providers/tau.toml", "mode": "strong_only", "threshold": 0.5},
+    {"name": "B1", "config": "../providers/tau.toml", "mode": "small_only", "threshold": 0.5},
+    {"name": "B3", "config": "../providers/tau.toml", "mode": "cascade", "threshold": 0.5},
+    {"name": "Rtau-050", "config": "../providers/tau.toml", "mode": "reflex_executor", "threshold": 0.5},
+    {"name": "Rtau-080", "config": "../providers/tau.toml", "mode": "reflex_executor", "threshold": 0.8}
+  ]
+}

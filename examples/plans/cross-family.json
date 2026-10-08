@@ -1,0 +1,11 @@
+{
+  "suite": "../suites/v03/controlled.jsonl", "repeats": 2,
+  "arms": [
+    {"name": "qwen-B0", "config": "../../config.toml", "mode": "strong_only", "threshold": 0.5},
+    {"name": "qwen-R1", "config": "../../config.toml", "mode": "reflex", "threshold": 0.5},
+    {"name": "kimi-B0", "config": "../providers/kimi.toml", "mode": "strong_only", "threshold": 0.5},
+    {"name": "kimi-R1", "config": "../providers/kimi.toml", "mode": "reflex", "threshold": 0.5},
+    {"name": "deepseek-B0", "config": "../providers/deepseek.toml", "mode": "strong_only", "threshold": 0.5},
+    {"name": "deepseek-R1", "config": "../providers/deepseek.toml", "mode": "reflex", "threshold": 0.5}
+  ]
+}

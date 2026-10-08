@@ -1,0 +1,20 @@
+{
+  "version": 1,
+  "cheap_role": "jev",
+  "task_kind": "decision",
+  "repeats": 1,
+  "objective": "max_coverage",
+  "budget": {
+    "delegated_error": 0.05,
+    "delegated_unsafe": 0.01,
+    "episode_error": 0.10,
+    "episode_unsafe": 0.01,
+    "success_margin": 0.02,
+    "alpha": 0.05
+  },
+  "rules": [
+    {"name": "read-menu-4", "effects": ["read"], "max_candidates": 4, "require_bound": false, "min_confidence": null, "facts": {}},
+    {"name": "read-menu-16", "effects": ["read"], "max_candidates": 16, "require_bound": false, "min_confidence": null, "facts": {}},
+    {"name": "read-confidence-09", "effects": ["read"], "max_candidates": 16, "require_bound": false, "min_confidence": 0.9, "facts": {}}
+  ]
+}

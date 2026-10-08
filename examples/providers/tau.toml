@@ -1,0 +1,23 @@
+[agent]
+mode = "reflex_executor"
+threshold = 0.5
+# Native tau2 counts conversation turns, not just model decisions.
+max_steps = 100
+
+[jev]
+endpoint = "https://api.typesafe.ai/v1/systemone"
+model = "jev-1.13.0"
+api_key = ""
+api_key_env = "TYPESAFE_API_KEY"
+
+[strong]
+endpoint = ""
+model = "qwen3.8-max"
+api_key = ""
+api_key_env = "STRONG_API_KEY"
+
+[small]
+endpoint = ""
+model = "qwen3.8-flash"
+api_key = ""
+api_key_env = "SMALL_API_KEY"
